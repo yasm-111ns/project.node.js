@@ -1,0 +1,116 @@
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.center {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card h1 {
+  margin: 0 0 8px;
+  font-size: 22px;
+  text-align: center;
+}
+
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label { font-size: 13px; color: #475569; font-weight: 600; }
+
+.input-wrap { position: relative; }
+
+.input-wrap input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.input-wrap input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.input-wrap input.invalid {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+}
+
+.eye {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.err { color: #dc2626; font-size: 12px; }
+
+.btn {
+  padding: 11px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: background 0.15s;
+}
+
+.btn:hover:not(:disabled) { background: #1d4ed8; }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.alert {
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  border: 1px solid;
+}
+
+.alert.error { background: #fef2f2; color: #991b1b; border-color: #fecaca; }
+.alert.success { background: #f0fdf4; color: #166534; border-color: #bbf7d0; }
+
+.muted {
+  font-size: 13px;
+  color: #64748b;
+  text-align: center;
+  margin: 4px 0 0;
+}
+.muted a { color: #2563eb; text-decoration: none; font-weight: 600; }
+.muted a:hover { text-decoration: underline; }
+
+.profile-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dashed #e2e8f0;
+  font-size: 14px;
+}
+.profile-row:last-of-type { border-bottom: none; }
+.profile-row span { color: #64748b; }
