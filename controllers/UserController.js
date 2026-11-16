@@ -1,6 +1,7 @@
 
 import User from "../models/User.js";
 import hashService from "../service/hashService.js";
+import tokenService from "../Service/tokenService.js";
 
 class UserController{
     async registration(req , res){
@@ -38,12 +39,22 @@ class UserController{
             const isPathValid = await hashService.comparePassword(password, user.password)
 
             if(!isPathValid){
-              return  res.status(400).json("неверный логин или пароль")
+                res.status(400).json("неверный логин или пароль")
             }
-          
-            return res.json(user)
+        const token = tokenService.generateToken({
+          id: user._id,
+        })
+
+        return res.status(200).json({
+          token,
+          user: {
+            id: user._id,
+            email:user.email,
+          }
+        })
             
         } catch (error) {
+            console.log(error);
             
         }
     }
